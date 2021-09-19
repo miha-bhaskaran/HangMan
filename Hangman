@@ -1,0 +1,46 @@
+print ("Let's Play Hangman! Try to guess a the word! You will lose a life everytime you guess a wrong letter and will have 6 tries")
+import random
+bank = ['aaa', 'bear', 'donkey', 'fff', 'horse', 'ooo', 'zebra']
+lives = 6
+word = random.choice(bank)
+x = len(word)
+s = ["-"] * x
+print(s)
+
+
+def joining():
+    if input_str in word[inx] and lives >= 1:
+        s[inx] = input_str
+        ''.join(s)
+
+def livesGone():
+    if lives != 0:
+        print("that letter is not in the word, Lives left:", lives)
+    else:
+        print("out of lives")
+def weirdCondition ():
+    if len(input_str) > 1 or input_str.isnumeric():
+
+        print("Print one letter")
+
+while lives > 0:
+    print("Lives Left: ", lives)
+
+    input_str = input("Guess a letter: ")
+    y = input_str.isalpha()
+    if y == True and len(input_str) == 1:
+        for inx in range(0,len(word)):
+            joining()
+        print(s)
+        if '-' not in s:
+            print('done')
+            break
+        if input_str not in s:
+            lives -= 1
+            livesGone()
+    else:
+        weirdCondition()
+
+
+
+
